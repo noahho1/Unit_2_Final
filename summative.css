@@ -1,0 +1,91 @@
+body {
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 1425px;
+    background-color:darkblue;
+    font-family: "courier new", sans-serif;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color:#a4d2fc;
+}
+
+.active {
+  background-color:#010c63;
+}
+
+#dirtwater {
+    width: 1405px;
+    height: 550px;
+    border-radius: 3px;
+    border: 10px solid #001a8f  ;
+}
+
+#goal {
+    width: 600px;
+    height: 600px;
+}
+
+#fat6{
+    width: 100%;
+    height: 400px;
+}
+
+#goal6w {
+    height: 40px;
+    width 200px;
+}
+
+h1 {
+    color: cadetblue;
+    font-family: "courier new", sans-serif;
+}
+
+h2 {
+    font-family: "courier new", sans-serif;
+    color: #969696;
+}
+
+p {
+    font-family: "courier new", sans-serif;
+    color: #696969;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+ 
+iframe {
+    width: 700px;
+    height: 600px;
+    border: 0px none;
+}
+
+Canvas {
+    border: 3px solid #d3d3d3; 
+    background: white;
+}

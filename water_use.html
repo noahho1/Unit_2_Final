@@ -1,0 +1,86 @@
+<html>
+<head>
+    
+<link rel = "stylesheet" href = "summative.css">
+<script src="6data.json"></script>
+</head>
+
+<body>
+<title>Water Use</title>
+<ul>
+  <li><a href="index_summative.html">Home</a></li>
+  <li><a class="active" href="water_use.html">Water Use</a></li>
+  <li><a href="take_action.html">Take Action</a></li>
+        <li><img id = "goal6w" src = "6word.png"></li>
+</ul>
+    
+    <div class="row">
+    <div class="column">
+    <h1>Municipal Water Usage</h1>
+    <h2>Water withdrawl across the globe</h2>
+        </div>
+        <div class="column">
+        <h1>Country Data</h1>
+        <h2>% of Clean Water</h2>
+        </div>
+    </div>
+    
+<div class="row">
+    <div class="column">
+  <iframe id = "iframe" src="https://ourworldindata.org/grapher/municipal-water-withdrawal?year=2010"></iframe>
+        <p>This map depicts municipal water usage for municipal purposes, measured in cubic metres per year, from 1965 to 2015. There is a slider which changes the year, and the colors represent water usage. Some years there is no data available, so these countries when clicked on indicate that there is no data for that year. Source (Our World in Data). </p>
+    </div>
+    <div class="column">
+        Country: <input type="text" id="ebox" placeholder="Country">
+        <button onclick="searchData()" class="button">Submit</button>
+        <button onclick="resetData()" class="button">Reset</button>
+        <div id="mydata"></div>
+    <div style="max-height: 580px;overflow: scroll;">
+        <canvas id = "Canvas" width="680" height="1330"></canvas>
+        </div>
+        <p>This data shows the percentage of clean water this country has access to. Using this data and the maps data you can compare the percentage of clean water they have to the amount of clean water they use. <b>Examples: Canada, Asia, United States of America, Australia, Brazil, Central Asia, Western Asia.</b> You can put in any country, but again some data os not available for those countries in a certain year.</p>
+    </div>
+</div>
+    
+    
+    <script>
+    
+    var c = document.getElementById("Canvas");
+            var ctx = c.getContext("2d");
+            var timesdraw = 0;
+            var y = 10;
+            var r = 5;
+            var t = 25;
+           
+           
+            function searchData() {
+                resetData();
+                var eboxtext = document.getElementById("ebox").value;
+                for (i = 0; i<data.length; i++) {
+                    if (eboxtext === data[i]['GeoAreaName']) {
+                    if (timesdraw != 0) {y = y + 30} {
+                        ctx.fillStyle="cadetblue";
+                        ctx.fillRect(0,y,data[i]['Value']*3.5,20);
+                        ctx.font = "15px Arial";
+                        ctx.fillText(data[i]['GeoAreaName']+": "+data[i]['Value']+"%"+" "+"("+data[i]['TimePeriod']+")",data[i]['Value']*3.5+r,t)
+                                timesdraw = timesdraw + 1
+                                t = t + 30
+                    }
+                }
+            }
+        }
+        function resetData() {
+                timesdraw = 0;
+                y = 10;
+                r = 5;
+                t = 25;
+                const context = c.getContext('2d');
+                context.clearRect(0, 0, c.width, c.height);
+                context.canvas.width = context.canvas.width;
+            }
+        
+    </script>
+    
+</body>
+
+</html>
